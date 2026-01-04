@@ -1,0 +1,844 @@
+/**
+ * Telebridge Pro - Admin Styles
+ * Complete CSS for plugin admin panel
+ * Author: Ready Studio
+ * Version: 6.0.0
+ */
+
+/* ============================================
+   CSS VARIABLES & ROOT STYLES
+   ============================================ */
+
+:root {
+    /* Colors - Material Design 3 */
+    --telebridge-primary: #1a73e8;
+    --telebridge-primary-hover: #1557b0;
+    --telebridge-primary-light: #e8f0fe;
+    --telebridge-success: #188038;
+    --telebridge-success-light: #e6f4ea;
+    --telebridge-error: #d93025;
+    --telebridge-error-light: #fce8e6;
+    --telebridge-warning: #f9ab00;
+    --telebridge-warning-light: #fef7e0;
+    --telebridge-info: #1f2937;
+    
+    /* Neutral Colors */
+    --telebridge-bg: #f8f9fa;
+    --telebridge-card-bg: #ffffff;
+    --telebridge-border: #dadce0;
+    --telebridge-border-light: #e8eaed;
+    --telebridge-text-main: #202124;
+    --telebridge-text-sub: #5f6368;
+    --telebridge-text-light: #9aa0a6;
+    
+    /* Effects */
+    --telebridge-focus: rgba(26, 115, 232, 0.2);
+    --telebridge-shadow-sm: 0 1px 2px 0 rgba(60, 64, 67, 0.05);
+    --telebridge-shadow-md: 0 1px 3px 0 rgba(60, 64, 67, 0.15);
+    --telebridge-shadow-lg: 0 4px 8px 0 rgba(60, 64, 67, 0.2);
+    
+    /* Spacing & Sizing */
+    --telebridge-radius: 8px;
+    --telebridge-radius-sm: 4px;
+    --telebridge-input-height: 40px;
+}
+
+/* ============================================
+   GLOBAL RESET & BASE STYLES
+   ============================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.toplevel_page_telebridge-pro {
+    background-color: var(--telebridge-bg);
+}
+
+/* ============================================
+   MAIN WRAPPER
+   ============================================ */
+
+.rti-wrap {
+    direction: rtl;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--telebridge-text-main);
+    max-width: 1000px;
+    margin: 20px auto 50px;
+    padding: 0 15px;
+}
+
+.rti-wrap * {
+    box-sizing: border-box;
+}
+
+/* ============================================
+   HEADER SECTION
+   ============================================ */
+
+.rti-header {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--telebridge-border-light);
+    text-align: right;
+}
+
+.rti-header h1 {
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    color: var(--telebridge-text-main);
+    margin: 0 0 8px 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rti-header p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--telebridge-text-light);
+    font-weight: 500;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+.rti-wrap h2,
+.rti-wrap .rti-card-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 20px 0;
+    color: var(--telebridge-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rti-wrap h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 16px 0;
+    color: var(--telebridge-text-main);
+}
+
+.rti-wrap p {
+    margin: 0 0 16px 0;
+    line-height: 1.6;
+    color: var(--telebridge-text-sub);
+}
+
+.rti-wrap small,
+.rti-wrap .description {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--telebridge-text-light);
+    line-height: 1.5;
+}
+
+.rti-wrap a {
+    color: var(--telebridge-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.rti-wrap a:hover {
+    color: var(--telebridge-primary-hover);
+    text-decoration: underline;
+}
+
+/* ============================================
+   CARD STYLES
+   ============================================ */
+
+.rti-card {
+    background: var(--telebridge-card-bg);
+    border: 1px solid var(--telebridge-border);
+    border-radius: var(--telebridge-radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: var(--telebridge-shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.rti-card:hover {
+    box-shadow: var(--telebridge-shadow-md);
+    border-color: var(--telebridge-primary-light);
+}
+
+.rti-card.rti-webhook-box {
+    background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
+    border-color: #d2e3fc;
+    border-left: 4px solid var(--telebridge-primary);
+}
+
+.rti-card.rti-webhook-box:hover {
+    box-shadow: 0 6px 16px rgba(26, 115, 232, 0.12);
+}
+
+/* ============================================
+   FORM GRID & LAYOUT
+   ============================================ */
+
+.rti-form {
+    margin-bottom: 32px;
+}
+
+.rti-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.rti-row:last-child {
+    margin-bottom: 0;
+}
+
+.rti-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================
+   LABELS
+   ============================================ */
+
+.rti-wrap label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--telebridge-text-main);
+    letter-spacing: 0.3px;
+}
+
+/* ============================================
+   FORM INPUTS
+   ============================================ */
+
+.rti-wrap input[type="text"],
+.rti-wrap input[type="password"],
+.rti-wrap input[type="email"],
+.rti-wrap input[type="number"],
+.rti-wrap input[type="url"],
+.rti-wrap select,
+.rti-wrap textarea {
+    width: 100%;
+    height: var(--telebridge-input-height);
+    padding: 10px 14px;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--telebridge-text-main);
+    background-color: #fff;
+    border: 1px solid var(--telebridge-border);
+    border-radius: var(--telebridge-radius-sm);
+    outline: none;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.rti-wrap input::placeholder {
+    color: var(--telebridge-text-light);
+}
+
+.rti-wrap input:focus,
+.rti-wrap select:focus,
+.rti-wrap textarea:focus {
+    border-color: var(--telebridge-primary);
+    background-color: #fafbfc;
+    box-shadow: 0 0 0 3px var(--telebridge-focus);
+}
+
+.rti-wrap input:disabled,
+.rti-wrap select:disabled,
+.rti-wrap textarea:disabled {
+    background-color: var(--telebridge-bg);
+    color: var(--telebridge-text-light);
+    cursor: not-allowed;
+}
+
+.rti-wrap textarea {
+    height: auto;
+    min-height: 100px;
+    resize: vertical;
+    padding: 12px 14px;
+}
+
+.rti-wrap select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235f6368' d='M10.5 3L6 7.5 1.5 3'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left 12px center;
+    padding-left: 32px;
+    appearance: none;
+}
+
+.rti-wrap select:hover {
+    background-color: #fafbfc;
+}
+
+.rti-wrap option {
+    padding: 6px 8px;
+}
+
+/* ============================================
+   CUSTOM CLASSES
+   ============================================ */
+
+.rti-full {
+    width: 100% !important;
+}
+
+.rti-half {
+    width: 48%;
+    display: inline-block;
+}
+
+/* ============================================
+   WEBHOOK SECTION
+   ============================================ */
+
+.rti-webhook-box h3 {
+    color: var(--telebridge-primary);
+    margin-bottom: 16px;
+}
+
+.rti-webhook-box code {
+    display: block;
+    background: #fff;
+    padding: 14px 16px;
+    border: 1.5px dashed var(--telebridge-border);
+    border-radius: var(--telebridge-radius-sm);
+    margin: 16px 0 20px 0;
+    font-family: "Courier New", "Roboto Mono", monospace;
+    font-size: 13px;
+    color: var(--telebridge-error);
+    word-break: break-all;
+    direction: ltr;
+    text-align: left;
+    overflow-x: auto;
+    line-height: 1.6;
+    background-color: #faf8f3;
+    letter-spacing: 0.3px;
+    user-select: all;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.rti-webhook-box code:hover {
+    background-color: #fffcf9;
+    border-color: var(--telebridge-error);
+    box-shadow: 0 2px 4px rgba(217, 48, 37, 0.1);
+}
+
+.rti-webhook-box code:active {
+    background-color: #fff0eb;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.rti-actions {
+    margin-top: 32px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.rti-wrap .button,
+.rti-wrap button {
+    height: 40px;
+    padding: 0 28px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: var(--telebridge-radius-sm);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+/* Primary Button */
+.rti-wrap .button.button-primary,
+.rti-wrap button[type="submit"] {
+    background: var(--telebridge-primary);
+    color: #fff;
+    box-shadow: var(--telebridge-shadow-sm);
+}
+
+.rti-wrap .button.button-primary:hover,
+.rti-wrap button[type="submit"]:hover {
+    background: var(--telebridge-primary-hover);
+    box-shadow: var(--telebridge-shadow-md);
+    transform: translateY(-1px);
+}
+
+.rti-wrap .button.button-primary:active,
+.rti-wrap button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: var(--telebridge-shadow-sm);
+}
+
+.rti-wrap .button.button-primary:disabled,
+.rti-wrap button[type="submit"]:disabled {
+    background: var(--telebridge-text-light);
+    color: rgba(255, 255, 255, 0.7);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Secondary Button */
+.rti-wrap .button.button-secondary {
+    background: #fff;
+    color: var(--telebridge-primary);
+    border: 1.5px solid var(--telebridge-border);
+    box-shadow: none;
+}
+
+.rti-wrap .button.button-secondary:hover {
+    background: var(--telebridge-primary-light);
+    border-color: var(--telebridge-primary);
+    box-shadow: var(--telebridge-shadow-sm);
+}
+
+.rti-wrap .button.button-secondary:active {
+    background: #e8eaed;
+}
+
+.rti-wrap .button.button-secondary:disabled {
+    color: var(--telebridge-text-light);
+    border-color: var(--telebridge-border-light);
+    cursor: not-allowed;
+}
+
+/* Large Button */
+.rti-wrap .button.button-large {
+    height: 44px;
+    padding: 0 32px;
+    font-size: 15px;
+}
+
+/* Full Width Buttons */
+#rti_webhook_btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+/* ============================================
+   STATUS MESSAGES & NOTIFICATIONS
+   ============================================ */
+
+#rti_msg,
+#rti_webhook_response {
+    margin-top: 16px;
+    padding: 14px 16px;
+    border-radius: var(--telebridge-radius-sm);
+    border-left: 4px solid transparent;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 13px;
+    animation: slideDown 0.3s ease;
+}
+
+/* Success Message */
+#rti_msg.rti-success,
+#rti_webhook_response.rti-success {
+    background: var(--telebridge-success-light);
+    color: var(--telebridge-success);
+    border-left-color: var(--telebridge-success);
+    display: flex;
+}
+
+/* Error Message */
+#rti_msg.rti-error,
+#rti_webhook_response.rti-error {
+    background: var(--telebridge-error-light);
+    color: var(--telebridge-error);
+    border-left-color: var(--telebridge-error);
+    display: flex;
+}
+
+/* Warning Message */
+#rti_msg.rti-warning {
+    background: var(--telebridge-warning-light);
+    color: var(--telebridge-warning);
+    border-left-color: var(--telebridge-warning);
+    display: flex;
+}
+
+/* Info Message */
+#rti_msg.rti-info {
+    background: var(--telebridge-primary-light);
+    color: var(--telebridge-primary);
+    border-left-color: var(--telebridge-primary);
+    display: flex;
+}
+
+/* ============================================
+   ICONS & DASHICONS
+   ============================================ */
+
+.rti-wrap .dashicons {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.rti-wrap .dashicons-update {
+    animation: spin 1s linear infinite;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ============================================
+   LOADING STATES
+   ============================================ */
+
+.rti-loading {
+    animation: spin 1s linear infinite;
+}
+
+.rti-wrap .button:disabled {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.rti-hidden {
+    display: none !important;
+}
+
+.rti-visible {
+    display: block !important;
+}
+
+.rti-text-center {
+    text-align: center;
+}
+
+.rti-text-right {
+    text-align: right;
+}
+
+.rti-text-left {
+    text-align: left;
+}
+
+.rti-mt-1 { margin-top: 8px; }
+.rti-mt-2 { margin-top: 16px; }
+.rti-mt-3 { margin-top: 24px; }
+.rti-mt-4 { margin-top: 32px; }
+
+.rti-mb-1 { margin-bottom: 8px; }
+.rti-mb-2 { margin-bottom: 16px; }
+.rti-mb-3 { margin-bottom: 24px; }
+.rti-mb-4 { margin-bottom: 32px; }
+
+.rti-gap-1 { gap: 8px; }
+.rti-gap-2 { gap: 16px; }
+.rti-gap-3 { gap: 24px; }
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .rti-wrap {
+        max-width: 100%;
+        padding: 0 12px;
+    }
+
+    .rti-row {
+        gap: 16px;
+    }
+
+    .rti-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .rti-wrap {
+        margin: 10px auto;
+    }
+
+    .rti-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .rti-header h1 {
+        font-size: 22px;
+        gap: 8px;
+    }
+
+    .rti-header p {
+        font-size: 12px;
+    }
+
+    .rti-card {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+
+    .rti-wrap label {
+        font-size: 13px;
+    }
+
+    .rti-wrap input,
+    .rti-wrap select,
+    .rti-wrap textarea {
+        font-size: 16px; /* Prevents iOS zoom */
+    }
+
+    .rti-actions {
+        flex-direction: column;
+    }
+
+    .rti-actions button,
+    .rti-actions .button {
+        width: 100%;
+    }
+
+    #rti_webhook_btn {
+        width: 100%;
+    }
+
+    .rti-webhook-box code {
+        font-size: 11px;
+        padding: 10px 12px;
+        word-break: break-word;
+    }
+
+    .rti-wrap h2,
+    .rti-wrap .rti-card-title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .rti-wrap {
+        padding: 0 8px;
+    }
+
+    .rti-card {
+        padding: 12px;
+    }
+
+    .rti-header h1 {
+        font-size: 18px;
+    }
+
+    .rti-header {
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+    }
+
+    .rti-wrap h2,
+    .rti-wrap .rti-card-title {
+        font-size: 14px;
+    }
+
+    .rti-wrap label {
+        font-size: 12px;
+    }
+
+    .rti-wrap input,
+    .rti-wrap select {
+        height: 36px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .rti-wrap .button,
+    .rti-wrap button {
+        height: 36px;
+        padding: 0 16px;
+        font-size: 13px;
+    }
+
+    .rti-row {
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .rti-actions {
+        gap: 8px;
+    }
+
+    .rti-webhook-box code {
+        font-size: 10px;
+        padding: 8px 10px;
+    }
+}
+
+/* ============================================
+   DARK MODE SUPPORT
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --telebridge-card-bg: #1f1f1f;
+        --telebridge-bg: #121212;
+        --telebridge-border: #3f3f3f;
+        --telebridge-border-light: #2a2a2a;
+        --telebridge-text-main: #e8eaed;
+        --telebridge-text-sub: #bdc1c6;
+        --telebridge-text-light: #9aa0a6;
+    }
+
+    .rti-wrap input,
+    .rti-wrap select,
+    .rti-wrap textarea {
+        background-color: #262626;
+        color: var(--telebridge-text-main);
+        border-color: #3f3f3f;
+    }
+
+    .rti-wrap input:focus,
+    .rti-wrap select:focus,
+    .rti-wrap textarea:focus {
+        background-color: #333333;
+    }
+
+    .rti-webhook-box {
+        background: linear-gradient(135deg, #1f2937 0%, #111827 100%) !important;
+    }
+
+    .rti-webhook-box code {
+        background: #262626;
+        background-color: #262626;
+        color: #ff9999;
+    }
+
+    .rti-wrap .button.button-secondary {
+        background: #262626;
+        border-color: #3f3f3f;
+        color: var(--telebridge-primary-light);
+    }
+
+    .rti-wrap .button.button-secondary:hover {
+        background: #333333;
+    }
+
+    .rti-card:hover {
+        border-color: #4f4f4f;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+.rti-wrap a:focus,
+.rti-wrap button:focus,
+.rti-wrap input:focus {
+    outline: 2px solid var(--telebridge-primary);
+    outline-offset: 2px;
+}
+
+.rti-wrap *:focus-visible {
+    outline: 2px solid var(--telebridge-primary);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rti-wrap * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+    .rti-card {
+        border-width: 2px;
+    }
+
+    .rti-wrap input,
+    .rti-wrap select {
+        border-width: 2px;
+    }
+
+    .rti-wrap button {
+        border-width: 2px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .rti-actions,
+    #rti_msg,
+    .rti-webhook-box {
+        display: none !important;
+    }
+
+    .rti-card {
+        page-break-inside: avoid;
+        box-shadow: none;
+    }
+}
