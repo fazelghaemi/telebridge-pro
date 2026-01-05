@@ -1,0 +1,610 @@
+/**
+ * Telebridge Ultimate - Admin Styles
+ * Version: 7.1.0 (Development Roadmap Edition)
+ * Author: Ready Studio
+ */
+
+/* ============================================
+   1. VARIABLES & THEME CONFIG
+   ============================================ */
+:root {
+    /* Brand Colors */
+    --tb-primary: #1a73e8;       /* Google Blue */
+    --tb-primary-hover: #1557b0;
+    --tb-primary-light: #e8f0fe; /* Light bg for primary items */
+    
+    --tb-accent: #00b0a4;        /* Teal for AI features */
+    --tb-accent-hover: #008b7a;
+    --tb-accent-light: #e0f2f1;
+
+    /* Semantic Status Colors */
+    --tb-success: #1e8e3e;
+    --tb-success-bg: #e6f4ea;
+    --tb-success-border: #b7e1cd;
+    
+    --tb-error: #d93025;
+    --tb-error-bg: #fce8e6;
+    --tb-error-border: #f5c6cb;
+    
+    --tb-warning: #f9ab00;
+    --tb-warning-bg: #fef7e0;
+
+    /* Neutral Scale */
+    --tb-bg: #f0f2f5;            /* App Background */
+    --tb-card-bg: #ffffff;       /* Card Background */
+    --tb-border: #dadce0;
+    --tb-text-main: #202124;     /* Primary Text */
+    --tb-text-sub: #5f6368;      /* Secondary Text */
+    --tb-text-placeholder: #9aa0a6;
+
+    /* Metrics */
+    --tb-radius: 8px;
+    --tb-radius-sm: 4px;
+    --tb-shadow-sm: 0 1px 2px 0 rgba(60,64,67,0.05);
+    --tb-shadow-md: 0 1px 3px 0 rgba(60,64,67,0.1), 0 4px 8px 3px rgba(60,64,67,0.05);
+    --tb-shadow-float: 0 6px 16px 0 rgba(60,64,67,0.2);
+    --tb-transition: all 0.2s ease-in-out;
+}
+
+/* ============================================
+   2. MAIN LAYOUT & RESET
+   ============================================ */
+.rti-wrap {
+    direction: rtl;
+    max-width: 980px;
+    margin: 30px auto 60px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: var(--tb-text-main);
+    box-sizing: border-box;
+}
+
+.rti-wrap * {
+    box-sizing: border-box;
+}
+
+/* Header Section */
+.rti-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--tb-border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rti-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--tb-text-main);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Version Badge */
+.rti-header h1 span {
+    font-size: 11px;
+    background: var(--tb-primary-light);
+    color: var(--tb-primary);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(26, 115, 232, 0.2);
+}
+
+.rti-header p {
+    font-size: 14px;
+    color: var(--tb-text-sub);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ============================================
+   3. CARDS & SECTIONS
+   ============================================ */
+.rti-card {
+    background: var(--tb-card-bg);
+    border: 1px solid var(--tb-border);
+    border-radius: var(--tb-radius);
+    padding: 30px;
+    margin-bottom: 24px;
+    box-shadow: var(--tb-shadow-sm);
+    transition: var(--tb-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.rti-card:hover {
+    box-shadow: var(--tb-shadow-md);
+    border-color: #cce0ff;
+    transform: translateY(-2px);
+}
+
+/* Card Titles */
+.rti-card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--tb-primary);
+    margin: 0 0 25px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f1f3f4;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rti-card-title::before {
+    /* Optional: Accent line */
+    content: '';
+    display: block;
+    width: 4px;
+    height: 18px;
+    background: var(--tb-accent);
+    border-radius: 2px;
+}
+
+/* ============================================
+   4. FORM ELEMENTS & GRID
+   ============================================ */
+.rti-form {
+    margin-bottom: 40px;
+}
+
+.rti-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 24px;
+}
+
+.rti-row:last-child {
+    margin-bottom: 0;
+}
+
+.rti-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+.rti-col label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: var(--tb-text-main);
+    display: block;
+}
+
+/* Inputs & Selects */
+.rti-col input[type="text"],
+.rti-col input[type="password"],
+.rti-col input[type="number"],
+.rti-col input[type="url"],
+.rti-col select,
+.rti-col textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--tb-border);
+    border-radius: var(--tb-radius-sm);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--tb-text-main);
+    background-color: #fff;
+    transition: var(--tb-transition);
+    min-height: 42px;
+}
+
+.rti-col input:focus,
+.rti-col select:focus,
+.rti-col textarea:focus {
+    border-color: var(--tb-primary);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+    outline: none;
+}
+
+/* Textareas (System Prompts) */
+.rti-col textarea {
+    min-height: 120px;
+    font-family: monospace; /* Better for editing JSON/Code structure */
+    line-height: 1.6;
+    font-size: 13px;
+    resize: vertical;
+}
+
+/* Helper Text */
+.rti-col small {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--tb-text-sub);
+    line-height: 1.4;
+}
+
+.rti-full {
+    width: 100%;
+}
+
+/* ============================================
+   5. WEBHOOK SECTION (Special UI)
+   ============================================ */
+.rti-webhook-box {
+    background: linear-gradient(135deg, #f8faff 0%, #eff6ff 100%);
+    border: 1px solid #d2e3fc;
+    border-right: 4px solid var(--tb-primary);
+}
+
+.rti-webhook-box h3 {
+    margin-top: 0;
+    color: var(--tb-primary);
+    font-size: 16px;
+}
+
+.rti-webhook-box code {
+    display: block;
+    background: #ffffff;
+    padding: 16px;
+    margin: 15px 0;
+    border: 1.5px dashed var(--tb-border);
+    border-radius: var(--tb-radius);
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    color: #c5221f; /* Red for code */
+    direction: ltr;
+    text-align: left;
+    word-break: break-all;
+    cursor: pointer;
+    position: relative;
+    transition: var(--tb-transition);
+}
+
+.rti-webhook-box code:hover {
+    background-color: #fffde7;
+    border-color: #fbc02d;
+    color: #202124;
+}
+
+.rti-webhook-box code::after {
+    content: 'برای کپی کلیک کنید';
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: 10px;
+    background: #333;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+.rti-webhook-box code:hover::after {
+    opacity: 1;
+}
+
+/* ============================================
+   6. BUTTONS & ACTIONS
+   ============================================ */
+.rti-actions {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Primary Submit Button Override */
+.rti-wrap .button.button-primary.button-large {
+    background: var(--tb-primary);
+    border-color: var(--tb-primary);
+    color: #fff;
+    padding: 0 32px;
+    height: 46px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: var(--tb-radius-sm);
+    box-shadow: 0 2px 5px rgba(26, 115, 232, 0.3);
+    transition: var(--tb-transition);
+}
+
+.rti-wrap .button.button-primary.button-large:hover {
+    background: var(--tb-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(26, 115, 232, 0.4);
+}
+
+.rti-wrap .button.button-primary.button-large:active {
+    transform: translateY(0);
+}
+
+/* Secondary Buttons */
+.rti-wrap .button.button-secondary {
+    border-color: var(--tb-border);
+    color: var(--tb-text-main);
+    background: #fff;
+    height: 40px;
+}
+
+.rti-wrap .button.button-secondary:hover {
+    border-color: var(--tb-primary);
+    color: var(--tb-primary);
+}
+
+/* Loading Spin Animation */
+.rti-wrap .spin {
+    animation: rti-spin 1s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+@keyframes rti-spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* ============================================
+   7. AI SITES MANAGER (Meta Box UI)
+   ============================================ */
+/* Wrapper */
+.ai-wrap {
+    background: var(--tb-card-bg);
+    border: 1px solid var(--tb-border);
+    border-radius: var(--tb-radius);
+    overflow: hidden;
+    margin-top: 10px;
+    position: relative;
+}
+
+/* Header Bar */
+.ai-header-bar {
+    padding: 12px 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid var(--tb-border);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Search Input inside Header */
+.ai-search-input {
+    transition: var(--tb-transition);
+}
+.ai-search-input:focus {
+    width: 280px !important; /* Expand on focus */
+}
+
+/* Categories */
+.ai-group {
+    border-bottom: 1px solid #f1f3f4;
+}
+.ai-group:last-child {
+    border-bottom: none;
+}
+
+/* Group Title */
+.ai-group h4 {
+    margin: 0;
+    padding: 12px 20px;
+    background: #ffffff;
+    font-size: 13px;
+    color: var(--tb-text-sub);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+}
+
+.ai-group h4 svg {
+    color: var(--tb-accent);
+    width: 16px;
+    height: 16px;
+}
+
+/* Grid Layout */
+.ai-grid {
+    padding: 0 20px 20px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+}
+
+/* Checkbox Label (The Card) */
+.ai-grid label {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid var(--tb-border);
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--tb-text-main);
+    transition: var(--tb-transition);
+    user-select: none;
+}
+
+.ai-grid label:hover {
+    border-color: var(--tb-accent);
+    background-color: var(--tb-accent-light);
+}
+
+.ai-grid label input[type="checkbox"] {
+    margin: 0 0 0 10px; /* RTL margin */
+    accent-color: var(--tb-accent); /* Modern browser support */
+}
+
+/* Checked State */
+.ai-grid label.checked {
+    background-color: var(--tb-success-bg);
+    border-color: var(--tb-success);
+    color: var(--tb-success);
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Frontend Chips Preview (Admin visual) */
+.ai-chips-container {
+    margin-top: 10px;
+}
+
+/* ============================================
+   8. NOTIFICATIONS & TOASTS
+   ============================================ */
+#rti_msg {
+    margin-top: 15px;
+    padding: 12px 16px;
+    border-radius: var(--tb-radius);
+    font-size: 14px;
+    display: none;
+    line-height: 1.5;
+}
+
+.rti-toast {
+    /* Styles handled in JS, but fallback here */
+    font-family: inherit;
+    z-index: 99999;
+}
+
+/* ============================================
+   9. RESPONSIVE MEDIA QUERIES
+   ============================================ */
+@media (max-width: 782px) {
+    .rti-wrap {
+        margin: 15px;
+        width: auto;
+    }
+
+    .rti-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .rti-card {
+        padding: 20px;
+    }
+
+    .rti-header h1 {
+        font-size: 24px;
+    }
+    
+    .ai-header-bar {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+    
+    .ai-search-input {
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ai-grid {
+        grid-template-columns: 1fr; /* Stack items on mobile */
+    }
+    
+    .rti-webhook-box code {
+        font-size: 11px;
+    }
+}
+
+/* ============================================
+   10. DARK MODE SUPPORT
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --tb-bg: #101214;
+        --tb-card-bg: #1d1f21;
+        --tb-border: #3c4043;
+        --tb-text-main: #e8eaed;
+        --tb-text-sub: #9aa0a6;
+        --tb-text-placeholder: #5f6368;
+        
+        --tb-primary-light: rgba(26, 115, 232, 0.2);
+        
+        --tb-success-bg: rgba(30, 142, 62, 0.15);
+        --tb-success-border: #1e8e3e;
+        
+        --tb-error-bg: rgba(217, 48, 37, 0.15);
+        --tb-error-border: #d93025;
+
+        --tb-accent-light: rgba(0, 176, 164, 0.15);
+    }
+
+    /* Form Elements Dark */
+    .rti-col input,
+    .rti-col select,
+    .rti-col textarea {
+        background-color: #2b2d30;
+        border-color: #5f6368;
+        color: #e8eaed;
+    }
+
+    .rti-col input:focus, 
+    .rti-col select:focus, 
+    .rti-col textarea:focus {
+        background-color: #303336;
+        border-color: var(--tb-primary);
+    }
+
+    /* Webhook Box Dark */
+    .rti-webhook-box {
+        background: #181a1c;
+        border-color: #3c4043;
+        border-right-color: var(--tb-primary);
+    }
+
+    .rti-webhook-box code {
+        background: #2b2d30;
+        border-color: #3c4043;
+        color: #ff8da1;
+    }
+
+    .rti-webhook-box code:hover {
+        background: #333538;
+        border-color: #ff8da1;
+        color: #fff;
+    }
+
+    /* AI Meta Box Dark */
+    .ai-wrap {
+        border-color: #3c4043;
+    }
+
+    .ai-header-bar {
+        background: #25272a;
+        border-bottom-color: #3c4043;
+    }
+
+    .ai-group {
+        border-bottom-color: #3c4043;
+    }
+
+    .ai-group h4 {
+        background: #1d1f21;
+        color: #9aa0a6;
+    }
+
+    .ai-grid label {
+        background: #2b2d30;
+        border-color: #3c4043;
+        color: #e8eaed;
+    }
+
+    .ai-grid label:hover {
+        background: #33363a;
+        border-color: var(--tb-accent);
+    }
+
+    .ai-grid label.checked {
+        background: rgba(30, 142, 62, 0.2);
+        border-color: var(--tb-success);
+        color: #81c995;
+    }
+}
